@@ -25,6 +25,7 @@ public class BFS {
                 No filho = new No(t.estadoDestino, u, u.custo + t.custo);
                 if(!explorados.contains(filho.estado) && !borda.contains(filho)) {
                     if(filho.estado == obejtivo) {
+                        System.out.println("custo: " + filho.custo);
                         return getSolution(filho);
                     }
                     borda.add(filho);

@@ -127,12 +127,30 @@ public class Main {
 //            }
 //            System.out.println();
 //        }
+        List<No> l1 = new ArrayList<>();
+        medirTempo(() -> BFS.execute(arad, bucharest));
+        medirTempo(() -> BFS.execute(sibiu, fagaras));
+        medirTempo(() -> BFS.execute(oradea, craiova));
+        medirTempo(() -> BFS.execute(timisoara, bucharest));
+        medirTempo(() -> BFS.execute(zerind, pitesti));
+        medirTempo(() -> BFS.execute(lugoj, urziceni));
+        medirTempo(() -> BFS.execute(arad, neamt));
+        medirTempo(() -> BFS.execute(craiova, iasi));
+        medirTempo(() -> BFS.execute(mehadia, vaslui));
+        medirTempo(() -> BFS.execute(giurgiu, eforie));
 
-        List<No> result = BFS.execute(arad, bucharest);
-        assert result != null;
-        for(No n : result){
-            System.out.println(n.toString());
-        }
+
+//        assert result != null;
+//        for(No n : result){
+//            System.out.println(n.toString());
+//        }
+    }
+
+    public static void medirTempo(Runnable funcao) {
+        long inicio = System.nanoTime();
+        funcao.run();
+        long fim = System.nanoTime();
+        System.out.println("Tempo de execução: " + (fim - inicio) / 1_000_000.0 + " ms");
     }
 
 }
