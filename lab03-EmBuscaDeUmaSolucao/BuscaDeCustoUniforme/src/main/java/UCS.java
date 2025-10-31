@@ -10,13 +10,13 @@ public class UCS {
         List<Estado> explorados = new ArrayList<>();
 
         No o = new No(origem, null, 0);
-        if (o.estado == obejtivo) {
+        if (o.estado.equals(obejtivo)) {
             return getSolution(o);
         }
         borda.add(o);
         while (!borda.isEmpty()) {
             No u = borda.poll();
-            if (u.estado == obejtivo) {
+            if (u.estado.equals(obejtivo)) {
                 System.out.println("custo: " + u.custo);
                 return getSolution(u);
             }

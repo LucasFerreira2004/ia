@@ -13,7 +13,7 @@ public class BFS {
         List<Estado> explorados = new ArrayList<>();
 
         No o = new No(origem, null, 0);
-        if (o.estado == obejtivo) {
+        if (o.estado.equals(obejtivo)) {
             return getSolution(o);
         }
         borda.add(o);
@@ -24,7 +24,7 @@ public class BFS {
             for (Transicao t : u.estado.transicoes) {
                 No filho = new No(t.estadoDestino, u, u.custo + t.custo);
                 if(!explorados.contains(filho.estado) && !borda.contains(filho)) {
-                    if(filho.estado == obejtivo) {
+                    if(filho.estado.equals(obejtivo)) {
                         System.out.println("custo: " + filho.custo);
                         return getSolution(filho);
                     }
