@@ -8,7 +8,7 @@ public class BuscaGulosa {
         PriorityQueue<No> borda = new PriorityQueue<>(Comparator.comparingInt(no -> heuristicas.get(no.estado)));
         List<Estado> explorados = new ArrayList<>();
 
-        No o = new No(origem, null, 0, null);
+        No o = new No(origem, null, 0);
         if (o.estado.equals(objetivo)) {
             return getSolution(o);
         }
@@ -23,7 +23,7 @@ public class BuscaGulosa {
             explorados.add(u.estado);
 
             for (Transicao t : u.estado.transicoes) {
-                No filho = new No(t.estadoDestino, u, u.custo + t.custo, t);
+                No filho = new No(t.estadoDestino, u, u.custo + t.custo);
                 Optional<No> existente = borda.stream()
                         .filter(n -> n.estado.equals(t.estadoDestino))
                         .findFirst();
