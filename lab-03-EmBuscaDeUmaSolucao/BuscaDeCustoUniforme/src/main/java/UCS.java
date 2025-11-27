@@ -28,7 +28,7 @@ public class UCS {
                         .filter(n -> n.estado.equals(t.estadoDestino))
                         .findFirst();
 
-                if(!explorados.contains(filho.estado) && !borda.contains(filho)) {
+                if(!explorados.contains(filho.estado) && existente.isEmpty()) {
                     borda.add(filho);
                 }
                 else if (existente.isPresent() && filho.custo < existente.get().custo) {

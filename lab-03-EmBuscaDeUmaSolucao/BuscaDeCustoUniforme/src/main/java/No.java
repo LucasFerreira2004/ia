@@ -2,13 +2,11 @@ public class No {
     Estado  estado;
     No pai;
     int custo;
-    Transicao transicao;
 
     public No(Estado estado, No pai, int custo) {
         this.estado = estado;
         this.pai = pai;
         this.custo = custo;
-        this.transicao = transicao;
     }
 
     @Override
