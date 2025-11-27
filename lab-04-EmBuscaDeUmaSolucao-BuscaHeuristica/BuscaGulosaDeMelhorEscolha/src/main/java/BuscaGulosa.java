@@ -28,7 +28,7 @@ public class BuscaGulosa {
                         .filter(n -> n.estado.equals(t.estadoDestino))
                         .findFirst();
 
-                if(!explorados.contains(filho.estado) && !borda.contains(filho)) {
+                if(!explorados.contains(filho.estado) && existente.isEmpty()) {
                     borda.add(filho);
                 }
                 else if (existente.isPresent() && heuristicas.get(filho.estado) < heuristicas.get(existente.get().estado)) {
@@ -41,9 +41,9 @@ public class BuscaGulosa {
     }
     public static String getCaminho(No no){
         StringBuilder caminho = new StringBuilder();
-        caminho.append(no.transicao);
+        caminho.append(no.estado + " <- " );
         while(no.pai != null){
-            caminho.append(no.pai.transicao);
+            caminho.append(no.pai.estado + " <- " );
             no = no.pai;
         }
         return caminho.toString();
